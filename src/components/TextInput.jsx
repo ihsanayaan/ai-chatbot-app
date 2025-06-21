@@ -38,30 +38,32 @@ const TextInput = ({ onSend }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex mt-3 gap-2">
-      <input
-        type="text"
-        placeholder="Type your message..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="flex-1 px-4 py-2 rounded-md border border-gray-300"
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded-md"
-      >
-        Send
-      </button>
-      <button
-        type="button"
-        onClick={handleVoiceInput}
-        className={`text-white px-4 py-2 rounded-md ${
-          listening ? "bg-red-600" : "bg-blue-600"
-        }`}
-      >
-        🎤
-      </button>
-    </form>
+   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row mt-3 gap-2 w-full">
+  <input
+    type="text"
+    placeholder="Type your message..."
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    className="flex-1 px-4 py-2 rounded-md border border-gray-300 w-full"
+  />
+  <div className="flex gap-2 sm:flex-row w-full sm:w-auto">
+    <button
+      type="submit"
+      className="bg-blue-600 text-white px-4 py-2 rounded-md w-full sm:w-auto"
+    >
+      Send
+    </button>
+    <button
+      type="button"
+      onClick={handleVoiceInput}
+      className={`text-white px-4 py-2 rounded-md w-full sm:w-auto ${
+        listening ? "bg-red-600" : "bg-blue-600"
+      }`}
+    >
+      🎤
+    </button>
+  </div>
+</form>
   );
 };
 
